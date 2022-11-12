@@ -1,14 +1,16 @@
-#Using the requests package to interact with an API is as simple as providing the following parameters: type, url, headers and the query
+'''This is my test script for accessing and parsing URL data'''
+#Using the requests package to interact with an API is as simple as providing the following
+# parameters: type, url, headers and the query
 #e.g. r = requests.request(type, url, headers=headers, query=query)
 
-import requests as requests
+import requests
 
 #set the url and the headers
-url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a"
+URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a"
 h = {"X-API-Key": "1"}
 
 #send the request to the url with the associated headers.
-r = requests.request("GET",url,headers=h)
+r = requests.request("GET",URL,headers=h,timeout=30)
 
 #convert result to json format
 r_json = r.json()
